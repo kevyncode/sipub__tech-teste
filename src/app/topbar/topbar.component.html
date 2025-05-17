@@ -1,0 +1,21 @@
+<div class="topbar">
+  <div class="logo">Simples Agenda</div>
+  <div class="user-info" (click)="toggleMenu()">
+    <img
+      class="user-photo"
+      src="https://i.pravatar.cc/32"
+      alt="Foto do usuário"
+    />
+
+    <span class="user-name">{{ userName }}</span>
+    <span class="divider-vertical">|</span>
+    <span class="span">Simples Agenda</span>
+    <span class="arrow" [class.active]="isMenuOpen">&#9660;</span>
+
+    <div class="dropdown" [class.show]="isMenuOpen">
+      <div class="dropdown-item">Perfil</div>
+      <div class="dropdown-item">Configurações</div>
+      <div class="dropdown-item">Sair</div>
+    </div>
+  </div>
+</div>

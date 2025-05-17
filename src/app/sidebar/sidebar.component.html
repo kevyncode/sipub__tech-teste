@@ -1,0 +1,30 @@
+<nav class="sidebar">
+  <ul>
+    <li
+      *ngFor="let item of items"
+      [class.active]="isActive(item) || isChildActive(item)"
+    >
+      <div class="item" (click)="item.children ? toggle(item) : navigate(item)">
+        <i [ngClass]="item.iconClass" class="sidebar-icon"></i>
+        <span class="label">{{ item.label }}</span>
+        <span class="spacer"></span>
+        <i
+          *ngIf="item.children"
+          class="fas fa-chevron-right icon-chevron"
+          [class.open]="item.active"
+        ></i>
+      </div>
+      <ul *ngIf="item.children && item.active" class="submenu">
+        <li
+          *ngFor="let child of item.children"
+          [class.active]="isActive(child)"
+        >
+          <div class="item" (click)="navigate(child)">
+            <i [ngClass]="child.iconClass" class="sidebar-icon"></i>
+            <span class="label">{{ child.label }}</span>
+          </div>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>

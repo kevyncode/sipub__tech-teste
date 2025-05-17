@@ -1,0 +1,158 @@
+<div class="clientes-container">
+  <header class="clientes-header">
+    <div class="header-title">
+      <h2>CLIENTES</h2>
+    </div>
+    <div class="header-actions">
+      <button class="btn primary">
+        <i class="fas fa-user-plus"></i>
+        Novo Cliente
+      </button>
+      <div class="search-group">
+        <input type="text" placeholder="Pesquisar por…" class="search" />
+        <button class="btn search">
+          <i class="fas fa-search"></i>
+          Pesquisar
+        </button>
+      </div>
+      <button class="btn export">
+        <i class="fas fa-file-excel"></i>
+        Exportar para Excel
+      </button>
+      <div class="total-group">
+        <span class="total-label">Total</span>
+        <span class="total-value">360 Cliente(s)</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="cadastro">
+    <h3>CADASTRO DE CLIENTES</h3>
+
+    <nav class="tabs">
+      <button (click)="setTab('geral')" [class.active]="activeTab === 'geral'">
+        Geral
+      </button>
+      <button
+        (click)="setTab('endereco')"
+        [class.active]="activeTab === 'endereco'"
+      >
+        Endereço
+      </button>
+      <button
+        (click)="setTab('extras')"
+        [class.active]="activeTab === 'extras'"
+      >
+        Extras
+      </button>
+      <button
+        (click)="setTab('credito')"
+        [class.active]="activeTab === 'credito'"
+      >
+        Crédito do Cliente
+      </button>
+    </nav>
+
+    <form [formGroup]="form" class="form-cadastro">
+      <div *ngIf="activeTab === 'geral'" class="tab-content">
+        <div class="row">
+          <label>Nome*</label>
+          <input formControlName="nome" type="text" />
+        </div>
+        <div class="row flex">
+          <div>
+            <label>CPF</label>
+            <input formControlName="cpf" type="text" />
+          </div>
+          <div>
+            <label>RG</label>
+            <input formControlName="rg" type="text" />
+          </div>
+          <div>
+            <label>CNPJ</label>
+            <input formControlName="cnpj" type="text" />
+          </div>
+          <div>
+            <label>Data Nascimento</label>
+            <input
+              formControlName="nascimento"
+              type="text"
+              placeholder="dd/mm/aaaa"
+            />
+          </div>
+        </div>
+        <div class="contatos-header">
+          <span>Contatos*</span>
+          <button type="button" class="btn small">+ CONTATOS</button>
+        </div>
+        <div class="contatos-list">
+          <!-- Exemplo de item de contato -->
+          <div class="contato-item flex">
+            <select>
+              <option>Celular</option>
+              <option>Email</option>
+              <option>Residencial</option>
+            </select>
+            <input type="text" placeholder="Número / Email" />
+            <select>
+              <option>Outro</option>
+            </select>
+            <input type="text" placeholder="Observações" />
+            <button type="button" class="icon-btn">♡</button>
+            <button type="button" class="icon-btn">🗑️</button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 'endereco'" class="tab-content">
+        <!-- Campos de endereço -->
+        <div class="row flex">
+          <div>
+            <label>Logradouro</label
+            ><input formControlName="logradouro" type="text" />
+          </div>
+          <div>
+            <label>Número</label><input formControlName="numero" type="text" />
+          </div>
+          <div>
+            <label>Complemento</label
+            ><input formControlName="complemento" type="text" />
+          </div>
+        </div>
+        <div class="row flex">
+          <div>
+            <label>Bairro</label><input formControlName="bairro" type="text" />
+          </div>
+          <div>
+            <label>Cidade</label><input formControlName="cidade" type="text" />
+          </div>
+          <div><label>UF</label><input formControlName="uf" type="text" /></div>
+          <div>
+            <label>CEP</label><input formControlName="cep" type="text" />
+          </div>
+        </div>
+      </div>
+
+      <div *ngIf="activeTab === 'extras'" class="tab-content">
+        <!-- Campos extras (vazio por enquanto) -->
+        <p>Conteúdo de Extras</p>
+      </div>
+
+      <div *ngIf="activeTab === 'credito'" class="tab-content">
+        <div class="row">
+          <label>Saldo</label>
+          <input formControlName="saldo" type="text" />
+        </div>
+      </div>
+
+      <footer class="form-actions">
+        <button type="button" class="btn primary" (click)="onSalvar()">
+          SALVAR
+        </button>
+        <button type="button" class="btn secondary" (click)="onNovo()">
+          + NOVO CLIENTE
+        </button>
+      </footer>
+    </form>
+  </section>
+</div>
