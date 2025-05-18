@@ -31,11 +31,22 @@ Principais requisitos:
    ```
    Depois, acesse [http://localhost:4200/](http://localhost:4200/) no navegador.
 
+## Observações
+
+- **Não há testes automatizados implementados neste projeto.**
+- O foco foi a implementação da interface, navegação e funcionalidades principais do desafio.
+
+## Imagens
+
+### Modelo proposto pelo desafio
+
+![alt text](<Captura de tela 2025-05-16 233312.png>)
+
+### Resultado alcançado
+
+![Minha implementação](image.png)
+
 ## Recursos adicionais
 
 - [Documentação Angular CLI](https://angular.dev/tools/cli)
 - [Documentação Angular](https://angular.dev/)
-
----
-
-![Exemplo da interface](image.png)
