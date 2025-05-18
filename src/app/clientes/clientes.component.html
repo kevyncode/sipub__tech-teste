@@ -3,6 +3,7 @@
     <div class="header-title">
       <h2>CLIENTES</h2>
     </div>
+    <hr class="header-divider" />
     <div class="header-actions">
       <button class="btn primary">
         <i class="fas fa-user-plus"></i>
@@ -27,28 +28,34 @@
   </header>
 
   <section class="cadastro">
-    <h3>CADASTRO DE CLIENTES</h3>
+    <h3 class="cadastro-title">CADASTRO DE CLIENTES</h3>
+
+    <hr class="header-divider" />
 
     <nav class="tabs">
       <button (click)="setTab('geral')" [class.active]="activeTab === 'geral'">
+        <i class="fas fa-user icon"></i>
         Geral
       </button>
       <button
         (click)="setTab('endereco')"
         [class.active]="activeTab === 'endereco'"
       >
+        <i class="fas fa-map-marker-alt icon"></i>
         Endereço
       </button>
       <button
         (click)="setTab('extras')"
         [class.active]="activeTab === 'extras'"
       >
+        <i class="fas fa-ellipsis-h icon"></i>
         Extras
       </button>
       <button
         (click)="setTab('credito')"
         [class.active]="activeTab === 'credito'"
       >
+        <i class="fas fa-wallet icon"></i>
         Crédito do Cliente
       </button>
     </nav>
@@ -81,54 +88,91 @@
             />
           </div>
         </div>
-        <div class="contatos-header">
-          <span>Contatos*</span>
-          <button type="button" class="btn small">+ CONTATOS</button>
-        </div>
-        <div class="contatos-list">
-          <!-- Exemplo de item de contato -->
-          <div class="contato-item flex">
-            <select>
-              <option>Celular</option>
-              <option>Email</option>
-              <option>Residencial</option>
-            </select>
-            <input type="text" placeholder="Número / Email" />
-            <select>
-              <option>Outro</option>
-            </select>
-            <input type="text" placeholder="Observações" />
-            <button type="button" class="icon-btn">♡</button>
-            <button type="button" class="icon-btn">🗑️</button>
+
+        <!-- CONTATOS ESTILIZADO -->
+        <div class="contatos-container">
+          <div class="contato-header">Contatos*</div>
+          <div class="contato-row">
+            <div class="contato-col tipo">
+              <select class="form-select">
+                <option>Celular</option>
+                <option>Email</option>
+                <option>Residencial</option>
+              </select>
+            </div>
+            <div class="contato-col numero">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Número/Email"
+              />
+            </div>
+            <div class="contato-col complemento">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Complemento"
+              />
+            </div>
+            <div class="contato-col observacoes">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Observações"
+              />
+            </div>
+            <div class="contato-col acoes">
+              <button type="button" class="icon-btn" title="Favorito">
+                <i class="fas fa-star icon"></i>
+              </button>
+              <button type="button" class="icon-btn" title="Remover">
+                <i class="fas fa-trash icon"></i>
+              </button>
+            </div>
+          </div>
+          <div class="contato-actions">
+            <button type="button" class="btn btn-primary">
+              <i class="fas fa-plus btn-icon"></i>
+              Adicionar Contato
+            </button>
+            <hr class="header-divider" />
           </div>
         </div>
+        <!-- FIM CONTATOS -->
       </div>
 
       <div *ngIf="activeTab === 'endereco'" class="tab-content">
         <!-- Campos de endereço -->
         <div class="row flex">
           <div>
-            <label>Logradouro</label
-            ><input formControlName="logradouro" type="text" />
+            <label>Logradouro</label>
+            <input formControlName="logradouro" type="text" />
           </div>
           <div>
-            <label>Número</label><input formControlName="numero" type="text" />
+            <label>Número</label>
+            <input formControlName="numero" type="text" />
           </div>
           <div>
-            <label>Complemento</label
-            ><input formControlName="complemento" type="text" />
+            <label>Complemento</label>
+            <input formControlName="complemento" type="text" />
           </div>
         </div>
         <div class="row flex">
           <div>
-            <label>Bairro</label><input formControlName="bairro" type="text" />
+            <label>Bairro</label>
+            <input formControlName="bairro" type="text" />
           </div>
           <div>
-            <label>Cidade</label><input formControlName="cidade" type="text" />
+            <label>Cidade</label>
+            <input formControlName="cidade" type="text" />
           </div>
-          <div><label>UF</label><input formControlName="uf" type="text" /></div>
           <div>
-            <label>CEP</label><input formControlName="cep" type="text" />
+            <label>UF</label>
+            <input formControlName="uf" type="text" />
+          </div>
+          <div>
+            <label>CEP</label>
+            <input formControlName="cep" type="text" />
           </div>
         </div>
       </div>
@@ -146,11 +190,13 @@
       </div>
 
       <footer class="form-actions">
-        <button type="button" class="btn primary" (click)="onSalvar()">
+        <button type="button" class="btn btn-success" (click)="onSalvar()">
+          <i class="fas fa-save btn-icon"></i>
           SALVAR
         </button>
-        <button type="button" class="btn secondary" (click)="onNovo()">
-          + NOVO CLIENTE
+        <button type="button" class="btn btn-primary" (click)="onNovo()">
+          <i class="fas fa-user-plus btn-icon"></i>
+          NOVO CLIENTE
         </button>
       </footer>
     </form>
